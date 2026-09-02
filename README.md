@@ -1,125 +1,93 @@
-# SLiMS Linux Production
+# SLiMS Linux Production - Instalasi Mudah
 
-Panduan instalasi **SLiMS (Senayan Library Management System)** di Linux production-ready dengan GUI untuk PC spesifikasi minim. Solusi untuk mengatasi masalah database corruption di XAMPP Windows.
+Solusi SLiMS stabil di Linux untuk PC spesifikasi minim. **Lupakan database corruption di XAMPP Windows!**
 
-## 🎯 Kenapa Linux?
+## 🚀 Quick Start (3 Langkah)
 
-- ✅ **Stabil** - MariaDB di Linux jauh lebih stabil daripada MySQL di XAMPP Windows
-- ✅ **Ringan** - Bisa jalan di PC dengan RAM 2-4GB
-- ✅ **Production-ready** - Stack LAMP di Linux dirancang untuk lingkungan produksi
-- ✅ **Minimal corruption** - File locking Linux mencegah database rusak
+### Cara TERMUDAH - 1 Command
 
-## 📋 Pilihan Instalasi
+```bash
+# Download dan jalankan script instalasi
+wget -qO- https://raw.githubusercontent.com/muzub/slims-linux-production/main/scripts/install-slims.sh | sudo bash
+```
 
-### Opsi 1: Install Manual (Untuk 1-5 PC)
+**Tunggu 5-10 menit** → SLiMS siap di `http://localhost/slims`
 
-Install Linux dari ISO resmi, lalu jalankan script instalasi otomatis.
+### Cara Manual (Jika Gagal)
 
-**Cocok untuk:**
-- Admin IT yang familiar dengan Linux dasar
-- Instalasi di beberapa PC saja
-- Mau kontrol penuh atas instalasi
+1. **Install Xubuntu 24.04** dari https://xubuntu.org/download/
+2. **Buka Terminal** (`Ctrl+Alt+T`)
+3. **Jalankan script**:
+   ```bash
+   wget https://raw.githubusercontent.com/muzub/slims-linux-production/main/scripts/install-slims.sh
+   chmod +x install-slims.sh
+   sudo ./install-slims.sh
+   ```
 
-👉 [Lihat tutorial instalasi manual](docs/01-install-manual.md)
+## ✅ Yang Sudah Otomatis
 
-### Opsi 2: Custom ISO (Untuk Distribusi Massal)
+- ✅ Apache + MariaDB + PHP terinstall
+- ✅ SLiMS 9 Bulian terdownload & tersetup
+- ✅ Database `slims` dibuat otomatis
+- ✅ Backup harian otomatis
+- ✅ Icon "Buka SLiMS" di desktop
+- ✅ Production-ready untuk PC minim
 
-Download ISO custom yang sudah include SLiMS + GUI, tinggal install seperti Windows.
+## 📋 Setup SLiMS (Hanya Sekali)
 
-**Cocok untuk:**
-- Distribusi ke banyak perpustakaan
-- User awam yang tidak mau ribet
-- Instalasi massal dengan konfigurasi seragam
+1. Buka Firefox → `http://localhost/slims`
+2. Klik **Get Started** → **Install SLiMS**
+3. Isi database:
+   - Database: `slims`
+   - Username: `slims`
+   - Password: `slims2026`
+4. Test Connection → Run Installation
+5. Login: `admin` / `admin` → **GANTI PASSWORD!**
 
-👉 [Lihat tutorial custom ISO](docs/02-custom-iso.md)
+## 🛠️ Custom ISO (Untuk Banyak PC)
 
-## 🖥️ Spesifikasi Minimum
+Jika mau distribusi ke banyak perpustakaan, buat ISO custom:
+
+```bash
+# Clone repo
+git clone https://github.com/muzub/slims-linux-production.git
+cd slims-linux-production
+
+# Build ISO
+chmod +x scripts/build-iso-cubic.sh
+sudo ./scripts/build-iso-cubic.sh
+```
+
+ISO siap di `~/slims-iso-build/slims-os-24.04.iso`
+
+📖 **Tutorial lengkap:** [docs/02-custom-iso.md](docs/02-custom-iso.md)
+
+## 📚 Dokumentasi
+
+- **Panduan instalasi lengkap:** [docs/01-install-manual.md](docs/01-install-manual.md)
+- **Troubleshooting:** [docs/03-troubleshooting.md](docs/03-troubleshooting.md)
+- **Panduan user:** [docs-user/PANDUAN-USER.md](docs-user/PANDUAN-USER.md)
+
+## 💻 Spesifikasi Minimum
 
 | Komponen | Minimum | Recommended |
 |----------|---------|-------------|
 | RAM | 2GB | 4GB |
 | CPU | Dual-core 1.5GHz | Quad-core 2GHz+ |
-| Storage | 20GB HDD | 40GB SSD |
-| OS | Ubuntu 24.04 LTS / Xubuntu | Xubuntu 24.04 LTS |
+| Storage | 20GB | 40GB SSD |
 
-## 📁 Struktur Repository
+## ❓ Kenapa Linux?
 
-```
-slims-linux-production/
-├── README.md                 # Dokumentasi utama
-├── docs/
-│   ├── 01-install-manual.md  # Tutorial instalasi manual
-│   ├── 02-custom-iso.md      # Tutorial custom ISO
-│   └── 03-troubleshooting.md # Troubleshooting
-├── scripts/
-│   ├── install-slims.sh      # Script instalasi otomatis
-│   ├── build-iso-cubic.sh    # Script build ISO dengan Cubic
-│   └── build-iso-livebuild.sh # Script build ISO dengan live-build
-├── config/
-│   ├── apache.conf           # Konfigurasi Apache
-│   └── mariadb.conf          # Konfigurasi MariaDB
-└── docs-user/
-    └── PANDUAN-USER.md       # Panduan untuk end-user
-```
-
-## 🚀 Quick Start
-
-### Instalasi Manual (5 Menit)
-
-```bash
-# 1. Install Xubuntu 24.04 LTS dari https://xubuntu.org/download/
-
-# 2. Download script instalasi
-wget https://raw.githubusercontent.com/muzub/slims-linux-production/main/scripts/install-slims.sh
-
-# 3. Jalankan script
-chmod +x install-slims.sh
-sudo ./install-slims.sh
-
-# 4. Buka browser → http://localhost/slims
-```
-
-### Build Custom ISO (30 Menit)
-
-```bash
-# 1. Clone repository ini
-git clone https://github.com/muzub/slims-linux-production.git
-cd slims-linux-production
-
-# 2. Jalankan script build ISO
-chmod +x scripts/build-iso-cubic.sh
-sudo ./scripts/build-iso-cubic.sh
-
-# 3. ISO siap di ~/slims-iso/*.iso
-```
-
-## 📚 Dokumentasi Lengkap
-
-- [Instalasi Manual Step-by-Step](docs/01-install-manual.md)
-- [Build Custom ISO dengan Cubic](docs/02-custom-iso.md)
-- [Troubleshooting](docs/03-troubleshooting.md)
-- [Panduan User](docs-user/PANDUAN-USER.md)
-
-## 🛠️ Fitur
-
-- ✅ **Desktop Environment Xfce** - Ringan dan familiar untuk user Windows
-- ✅ **Auto-install SLiMS** - Script otomatis setup Apache, MariaDB, PHP, SLiMS
-- ✅ **Auto-backup Database** - Backup harian otomatis di `/backup/slims/`
-- ✅ **Desktop Shortcut** - Icon "Buka SLiMS" di desktop
-- ✅ **Production Configuration** - MariaDB dan Apache sudah di-tune untuk PC minim
-- ✅ **First-boot Setup** - Database dibuat otomatis saat first boot (untuk ISO custom)
+- ✅ **Stabil** - Database tidak mudah corrupt seperti di XAMPP Windows
+- ✅ **Ringan** - Jalan lancar di PC lama
+- ✅ **Production-ready** - MariaDB + Apache di Linux lebih reliable
+- ✅ **Auto backup** - Database backup harian otomatis
 
 ## 📞 Support
 
 - Issue: https://github.com/muzub/slims-linux-production/issues
-- SLiMS Official: https://slims.web.id
 - Komunitas SLiMS: https://www.facebook.com/groups/slimscommunity
-
-## 📄 License
-
-- SLiMS: GPL v3
-- Script dan dokumentasi ini: MIT License
 
 ---
 
-**Dibuat untuk komunitas perpustakaan Indonesia** 🇮🇩
+**Dibuat untuk perpustakaan Indonesia** 🇮🇩
