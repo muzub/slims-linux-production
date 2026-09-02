@@ -11,18 +11,56 @@ Solusi SLiMS stabil di Linux untuk PC spesifikasi minim dengan **security harden
 
 ---
 
-## Fase 1: Install Xubuntu (15 menit)
+## Fase 1: Install Linux (15 menit)
 
-1. Download Xubuntu 24.04: https://xubuntu.org/download/
-2. Buat USB installer dengan Rufus (Windows) atau `dd` (Linux)
-3. Install Xubuntu dengan wizard standar
-4. Restart & login
+### 🎯 REKOMENDASI: Xubuntu 22.04 LTS
+
+**Kenapa 22.04 LTS (bukan 24.04)?**
+- ✅ Support sampai **April 2027** (masih 3+ tahun)
+- ✅ Lebih stabil & mature (sudah 2+ tahun production)
+- ✅ Lebih kompatibel dengan hardware lama (RAM 2-4GB)
+- ✅ PHP 8.1 default - kompatibel dengan semua plugin SLiMS
+- ✅ Less bugs, more battle-tested
+
+**Download:** https://xubuntu.org/download/
+
+**Alternatif:**
+- **Ubuntu 22.04 LTS** - Jika mau desktop GNOME (butuh RAM 4GB+)
+- **Xubuntu 24.04 LTS** - Jika mau versi lebih baru (support sampai 2029)
+- **Linux Mint 21 Xfce** - Jika mau yang lebih mirip Windows
+
+### Buat USB Installer
+
+**Windows:**
+1. Download Rufus: https://rufus.ie
+2. Insert USB → Buka Rufus → Pilih ISO → Start
+
+**Linux:**
+```bash
+sudo dd if=xubuntu-22.04.iso of=/dev/sdX bs=4M status=progress
+```
+
+### Install Xubuntu
+
+1. Boot dari USB
+2. Pilih **"Install Xubuntu"**
+3. Pilih bahasa → Indonesia (opsional)
+4. Keyboard → Indonesian
+5. **Installation type**: "Erase disk and install Xubuntu"
+6. Timezone → Jakarta
+7. Buat user:
+   - Name: `Admin`
+   - Username: `admin`
+   - Password: `[pilih password]`
+8. Install → Restart
+
+**Setelah restart, login ke Xubuntu.**
 
 ---
 
 ## Fase 2: Install SLiMS (5-10 menit)
 
-**Setelah Xubuntu terinstall, jalankan:**
+**Setelah Linux terinstall, jalankan:**
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/muzub/slims-linux-production/main/scripts/install-slims.sh | sudo bash
@@ -100,7 +138,7 @@ chmod +x scripts/build-iso-cubic.sh
 sudo ./scripts/build-iso-cubic.sh
 ```
 
-ISO siap di `~/slims-iso-build/slims-os-24.04.iso`
+ISO siap di `~/slims-iso-build/slims-os-22.04.iso`
 
 📖 **Tutorial:** [docs/02-custom-iso.md](docs/02-custom-iso.md)
 
@@ -145,5 +183,7 @@ ISO siap di `~/slims-iso-build/slims-os-24.04.iso`
 **Dibuat untuk perpustakaan Indonesia** 🇮🇩
 
 **Status:** Production-Ready ✅
+
+**Recommended OS:** Xubuntu 22.04 LTS (support sampai 2027)
 
 **Last Updated:** September 2026
