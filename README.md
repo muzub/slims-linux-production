@@ -13,21 +13,23 @@ Solusi SLiMS stabil di Linux untuk PC spesifikasi minim dengan **security harden
 
 ## Fase 1: Install Linux (15 menit)
 
-### 🎯 REKOMENDASI: Xubuntu 22.04 LTS
+### 🎯 REKOMENDASI: Xubuntu 24.04 LTS
 
-**Kenapa 22.04 LTS (bukan 24.04)?**
-- ✅ Support sampai **April 2027** (masih 3+ tahun)
-- ✅ Lebih stabil & mature (sudah 2+ tahun production)
-- ✅ Lebih kompatibel dengan hardware lama (RAM 2-4GB)
-- ✅ PHP 8.1 default - kompatibel dengan semua plugin SLiMS
-- ✅ Less bugs, more battle-tested
+**Kenapa 24.04 LTS?**
+- ✅ Support sampai **April 2029** (masih 2.5+ tahun dari sekarang)
+- ✅ PHP 8.3 - kompatibel dengan SLiMS 9 Bulian
+- ✅ Security patches terbaru
+- ✅ Stabil untuk production (sudah 2+ tahun release)
+- ✅ Kompatibel dengan hardware lama (RAM 2-4GB)
 
 **Download:** https://xubuntu.org/download/
 
 **Alternatif:**
-- **Ubuntu 22.04 LTS** - Jika mau desktop GNOME (butuh RAM 4GB+)
-- **Xubuntu 24.04 LTS** - Jika mau versi lebih baru (support sampai 2029)
-- **Linux Mint 21 Xfce** - Jika mau yang lebih mirip Windows
+- **Xubuntu 26.04 LTS** - Jika sudah tersedia (support sampai 2031)
+- **Ubuntu 24.04 LTS** - Jika mau desktop GNOME (butuh RAM 4GB+)
+- **Linux Mint 22 Xfce** - Jika mau yang lebih mirip Windows
+
+**⚠️ JANGAN gunakan Ubuntu 22.04 LTS** - Support tinggal 7 bulan (April 2027)!
 
 ### Buat USB Installer
 
@@ -37,7 +39,7 @@ Solusi SLiMS stabil di Linux untuk PC spesifikasi minim dengan **security harden
 
 **Linux:**
 ```bash
-sudo dd if=xubuntu-22.04.iso of=/dev/sdX bs=4M status=progress
+sudo dd if=xubuntu-24.04.iso of=/dev/sdX bs=4M status=progress
 ```
 
 ### Install Xubuntu
@@ -138,7 +140,7 @@ chmod +x scripts/build-iso-cubic.sh
 sudo ./scripts/build-iso-cubic.sh
 ```
 
-ISO siap di `~/slims-iso-build/slims-os-22.04.iso`
+ISO siap di `~/slims-iso-build/slims-os-24.04.iso`
 
 📖 **Tutorial:** [docs/02-custom-iso.md](docs/02-custom-iso.md)
 
@@ -184,6 +186,6 @@ ISO siap di `~/slims-iso-build/slims-os-22.04.iso`
 
 **Status:** Production-Ready ✅
 
-**Recommended OS:** Xubuntu 22.04 LTS (support sampai 2027)
+**Recommended OS:** Xubuntu 24.04 LTS (support sampai April 2029)
 
 **Last Updated:** September 2026
